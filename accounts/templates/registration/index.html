@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <title>UserAuth - Homepage</title>
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div id="alert" class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        <i class="bi bi-check-circle-fill"></i> {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <div class="container my-3">
+            <div class="h2 text-center auth-logo text-dark">Bem vindo ao projeto User <span
+                    class="auth-logo">Auth</span></div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <br>
+                <h6>Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis.Si num
+                    tem
+                    leite então bota uma pinga aí cumpadi!Quem num gosta di mé, boa gentis num é.Delegadis gente finis,
+                    bibendum egestas augue arcu ut est.</h6>
+                <h6>Mussum Ipsum, cacilds vidis litro abertis. Aenean aliquam molestie leo, vitae iaculis nisl.Delegadis
+                    gente finis, bibendum egestas augue arcu ut est.Interagi no mé, cursus quis, vehicula ac
+                    nisi.Praesent
+                    vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget.</h6>
+                <br>
+                <h2 style="text-align:center;">Para mais projetos, acesse o github: <a
+                        href="https://github.com/brunovhk">Brunovhk</a></h2>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

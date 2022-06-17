@@ -1,0 +1,82 @@
+{% extends '../base.html' %}
+
+{% block header %}
+    <title>UserLogin - Cadastro</title>
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper bg-white p-5">
+        <div class="h2 text-center auth-logo text-dark">Projeto User <span class="auth-logo">Auth</span></div>
+        <form method="POST" class="pt-3">
+            {% csrf_token %}
+            <div class="mx-auto" style="width: 400px;">
+
+                <div class="col-xs-8 col-xs-offset-4">
+                    <h2 style="text-align:center;">Cadastro</h2>
+                </div>
+                <hr/>
+                <div class="form-group">
+                    <div class="input-field m-1">
+                        <label for="username">Usuário</label>
+                        <span class="far fa-user p-2"></span>
+                        <input type="text" class="form-control" name="username" id="username"
+                               placeholder="Digite um usuário"
+                               Required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-field m-1">
+                        <label for="fanme">Nome</label>
+                        <span class="far fa-user p-2"></span>
+                        <input type="text" class="form-control" name="first_name" id="first_name"
+                               placeholder="Digite seu nome"
+                               Required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-field m-1">
+                        <label for="lname">Sobrenome</label>
+                        <span class="far fa-user p-2"></span>
+                        <input type="text" class="form-control" name="last_name" id="last_name"
+                               placeholder="Digite seu sobrenome"
+                               Required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-field m-1">
+                        <label for="email">Email</label>
+                        <span class="far fa-user p-2"></span>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu email"
+                               Required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-field m-1">
+                        <label for="password">Senha</label>
+                        <span class="far fa-user p-2"></span>
+                        <input type="password" class="form-control" name="password" id="password"
+                               placeholder="Digite uma senha"
+                               Required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-field m-1">
+                        <label for="confirm_password">Confirmação de senha</label>
+                        <span class="far fa-user p-2"></span>
+                        <input type="password" class="form-control" name="confirm_password" id="confirm_password"
+                               placeholder="Confirme sua senha" Required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-block text-center my-3">Cadastrar</button>
+                <a class="btn btn-dark text-center my-3" href="{% url 'login' %}" role="button">Login</a>
+            </div>
+        </form>
+        <div class="form-group">
+            {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

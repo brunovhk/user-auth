@@ -1,0 +1,56 @@
+{% extends '../base.html' %}
+
+{% block header %}
+    <title>UserAuth - Login</title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="wrapper bg-white p-5">
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                    <div id="alerta" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="bi bi-x-circle-fill"></i> {{ message }}
+                        <button type="button" class="btn-close" aria-label="Close"></button>
+                    </div>
+                {% endif %}
+                {% if message.tags == 'success' %}
+                    <div id="alerta" class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="bi bi-check-circle-fill"></i> {{ message }}
+                        <button type="button" class="btn-close" aria-label="Close"></button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <div class="h2 text-center auth-logo text-dark">Projeto User <span class="auth-logo">Auth</span></div>
+        <div class="h4 text-muted text-center pt-2">Acesse sua conta</div>
+        <form method="post" class="pt-3">
+            {% csrf_token %}
+            <div class="form-group py-2">
+                <div class="input-field"><span class="far fa-user p-2"></span> <input type="text"
+                                                                                      placeholder="Nome de usuário ou email"
+                                                                                      name="username" id="username">
+                </div>
+            </div>
+            <div class="form-group py-1 pb-2">
+                <div class="input-field"><span class="fas fa-lock p-2"></span> <input type="password"
+                                                                                      placeholder="Digite sua senha"
+                                                                                      name="password" id="password">
+                    <button class="btn bg-white text-muted"><span class="far fa-eye-slash"></span></button>
+                </div>
+            </div>
+            <div class="d-flex align-items-start">
+                <div class="remember"><label class="option text-muted mx-2"> Lembrar-me <input type="radio"
+                                                                                               name="radio">
+                    <span
+                            class="checkmark"></span> </label></div>
+                <div class="ml-auto"><a href="/password_reset" id="forgot">Esqueci minha senha</a></div>
+            </div>
+            <button type="submit" class="btn btn-block text-center my-3">Login</button>
+
+            <div class="text-center pt-3 text-muted">Não é cadastrado? <a href="{% url 'register' %}">Cadastre-se já</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
