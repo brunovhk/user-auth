@@ -1,76 +1,100 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     {% block header %}
-        <title>Login</title>
+    <title>Login</title>
     {% endblock %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-</head>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+  </head>
 
-<body class="d-flex flex-column min-vh-100">
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand p-2 auth-logo" href="{% url 'index' %}">User <span class="auth-logo">Auth</span></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand p-2 auth-logo" href="{% url 'index' %}"
+        >User <span class="auth-logo">Auth</span></a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-            {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <span class="nav-link h3 text-white" href="#">Olá, {{ user.first_name }}</span>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn btn-danger m-1" href="{% url 'logout' %}">Logout</a>
-                </li>
-            {% endif %}
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <span class="nav-link h3 text-white" href="#"
+              >Olá, {{ user.first_name }}</span
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-danger m-1" href="{% url 'logout' %}"
+              >Logout</a
+            >
+          </li>
+          {% endif %}
         </ul>
-    </div>
-</nav>
-<div class="container">
-    {% block content %}
+      </div>
+    </nav>
+    <div class="container">{% block content %} {% endblock %}</div>
 
-    {% endblock %}
-</div>
-
-<footer class="bg-dark text-center text-white mt-auto" id="footer">
-    <!-- Grid container -->
-    <div class="container p-4 pb-0">
+    <footer class="bg-dark text-center text-white mt-auto" id="footer">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
         <!-- Section: Social media -->
         <section class="mb-4">
-
-            <!-- Linkedin -->
-            <a target="_blank" class="btn btn-outline-light btn-floating m-1"
-               href="https://www.linkedin.com/in/brunovhk" role="button"
+          <!-- Linkedin -->
+          <a
+            target="_blank"
+            class="btn btn-outline-light btn-floating m-1"
+            href="https://www.linkedin.com/in/brunovhk"
+            role="button"
             ><i class="fab fa-linkedin-in"></i
-            ></a>
+          ></a>
 
-            <!-- Github -->
-            <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="https://github.com/brunovhk"
-               role="button"
+          <!-- Github -->
+          <a
+            target="_blank"
+            class="btn btn-outline-light btn-floating m-1"
+            href="https://github.com/brunovhk"
+            role="button"
             ><i class="fab fa-github"></i
-            ></a>
+          ></a>
         </section>
         <!-- Section: Social media -->
-    </div>
-    <!-- Grid container -->
+      </div>
+      <!-- Grid container -->
 
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
         © 2022 Copyright:
         <a class="text-white" href="https://github.com/brunovhk">Brunovhk</a>
-    </div>
-    <!-- Copyright -->
-</footer>
-<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-</body>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <script
+      type="text/javascript"
+      src="{% static 'js/bootstrap.min.js' %}"
+    ></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    <script
+      type="text/javascript"
+      src="{% static 'js/jquery-3.6.0.min.js' %}"
+    ></script>
+  </body>
 </html>
